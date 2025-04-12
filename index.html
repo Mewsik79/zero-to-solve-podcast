@@ -6,11 +6,13 @@
     <title>The Evolve Room | LuminateCX Podcast</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #7c3aed;
-            --dark: #121212;
+            --primary: #FF7A00;
+            --secondary: #FF7A00;
+            --dark: #1a1a1a;
+            --darker: #101010;
             --light: #f8fafc;
-            --accent: #10b981;
+            --accent: #FF7A00;
+            --tag-bg: #2d2d2d;
         }
         * {
             margin: 0;
@@ -24,9 +26,44 @@
             line-height: 1.6;
         }
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 2rem 0;
-            text-align: center;
+            background-color: var(--darker);
+            padding: 1.5rem 0;
+            border-bottom: 3px solid var(--primary);
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .contact-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
         .container {
             width: 90%;
@@ -37,6 +74,7 @@
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            text-align: center;
         }
         h2 {
             font-size: 1.8rem;
@@ -46,12 +84,12 @@
         p {
             margin-bottom: 1.5rem;
         }
-        .logo {
-            max-width: 200px;
-            margin-bottom: 1rem;
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
         }
         .episode-card {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: var(--darker);
             border-radius: 10px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -59,7 +97,7 @@
         }
         .player {
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             padding: 1rem;
             border-radius: 5px;
             margin: 1.5rem 0;
@@ -75,15 +113,21 @@
             margin-right: 1rem;
             margin-bottom: 1rem;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         .btn:hover {
-            background-color: #0d946a;
+            background-color: #e66d00;
             transform: translateY(-2px);
         }
         .host-info {
             display: flex;
             align-items: center;
             margin-bottom: 2rem;
+            background-color: var(--darker);
+            padding: 1.5rem;
+            border-radius: 10px;
         }
         .host-avatar {
             width: 80px;
@@ -91,19 +135,22 @@
             border-radius: 50%;
             margin-right: 1.5rem;
             background-color: var(--primary);
+            flex-shrink: 0;
         }
         .subscribe-section {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: var(--darker);
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
             margin: 3rem 0;
+            border-top: 3px solid var(--primary);
         }
         footer {
             text-align: center;
             padding: 2rem 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: var(--darker);
             margin-top: 3rem;
+            border-top: 1px solid #333;
         }
         .tags {
             display: flex;
@@ -111,14 +158,39 @@
             margin-bottom: 1.5rem;
         }
         .tag {
-            background-color: rgba(124, 58, 237, 0.3);
+            background-color: var(--tag-bg);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .featured-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border: 1px solid #333;
+        }
+        .quote {
+            border-left: 3px solid var(--primary);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
         }
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                margin-top: 1rem;
+            }
+            .nav-links a {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
             h1 {
                 font-size: 2rem;
             }
@@ -138,28 +210,54 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>The Evolve Room</h1>
-            <p>LuminateCX's podcast exploring the cutting edge of technology and business transformation</p>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x40/FF7A00/FFFFFF?text=LuminateCX" alt="LuminateCX Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#">EVOLVE</a>
+                <a href="#">IGNITE</a>
+                <a href="#">WORK</a>
+                <a href="#">BLOG</a>
+                <a href="#">PARTNERS</a>
+                <a href="#">ABOUT</a>
+                <a href="#" class="contact-btn">CONTACT US</a>
+            </div>
         </div>
     </header>
 
+    <div class="hero">
+        <div class="container">
+            <h1>Zero-to-Solve: The Execution Layer Has Moved</h1>
+            <div class="tags">
+                <span class="tag">AI Revolution</span>
+                <span class="tag">AI Personalisation</span>
+                <span class="tag">AI disruption in SaaS</span>
+                <span class="tag">Zero-to-Solve</span>
+                <span class="tag">Citizen Developer</span>
+                <span class="tag">AI Execution Layer</span>
+                <span class="tag">Prompt Engineering</span>
+                <span class="tag">No-Code Development</span>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="episode-card">
-            <div class="tags">
-                <span class="tag">AI</span>
-                <span class="tag">Zero-to-Solve</span>
-                <span class="tag">Execution Layer</span>
-                <span class="tag">Digital Transformation</span>
-            </div>
-            <h2>Coming Soon: Zero-to-Solve: The Execution Layer Has Moved</h2>
-            <p>The most transformative shift in AI isn't what you think. While everyone's talking about disruption, the execution layer has already moved. Join us as we talk with Steven Muir-McCarey about his groundbreaking article on the Zero-to-Solve era.</p>
+            <h2>The Real Shift: It's Already Happened</h2>
+            <p>Most teams are still chasing AI disruption. But the sharpest operators have already moved on because the real disruption? It's behind us.</p>
+            
+            <img src="https://via.placeholder.com/800x400/333333/FF7A00?text=Zero-to-Solve" alt="Zero-to-Solve Concept" class="featured-image">
             
             <div class="player">
                 <audio controls>
                     <source src="teaser.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
+            </div>
+            
+            <div class="quote">
+                "The execution layer has moved. It's no longer buried in your dev backlog, your delivery pipeline, or integration stack. It now lives at the edge, where intent meets outcome, instantly."
             </div>
             
             <h3>Episode Highlights:</h3>
@@ -195,6 +293,14 @@
             </div>
         </div>
         
+        <div class="host-info">
+            <div class="host-avatar"></div>
+            <div>
+                <h3>Steven Muir-McCarey</h3>
+                <p>Author of "Zero-to-Solve: The Execution Layer Has Moved" and technology thought leader. Steven's insights on AI-native tools and the changing execution layer are reshaping how organisations approach digital transformation.</p>
+            </div>
+        </div>
+        
         <div id="subscribe" class="subscribe-section">
             <h2>Never Miss an Episode</h2>
             <p>Subscribe to The Evolve Room and stay ahead of the curve with insights from the leading edge of technology and business.</p>
@@ -205,7 +311,13 @@
         </div>
         
         <h2>About LuminateCX</h2>
-        <p>At LuminateCX, we help leaders separate signal from hype, identify execution leverage points, and build AI-native workflows that actually ship. Our podcast, The Evolve Room, brings you conversations with thought leaders at the forefront of technological transformation.</p>
+        <p>At LuminateCX, we help leaders:</p>
+        <ul>
+            <li>Separate signal from hype</li>
+            <li>Identify execution leverage points</li>
+            <li>Build AI-native workflows and Zero-to-Solve roadmaps that actually ship</li>
+        </ul>
+        <a href="#" class="btn">Book a Pulse Session</a>
     </div>
     
     <footer>
