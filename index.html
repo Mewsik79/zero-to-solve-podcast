@@ -3,115 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Evolve Room Podcast - Zero-to-Solve Episode</title>
+    <title>The Evolve Room | LuminateCX Podcast</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #121212;
+            --light: #f8fafc;
+            --accent: #10b981;
+        }
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f5f5f7;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
         }
         header {
-            background: linear-gradient(135deg, #6200ea, #0091ea);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 2rem 0;
             text-align: center;
         }
         .container {
-            max-width: 1100px;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 2rem 0;
         }
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        .episode-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .episode-title {
+        h2 {
             font-size: 1.8rem;
-            color: #6200ea;
-            margin-bottom: 1rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent);
         }
-        .episode-meta {
-            display: flex;
-            align-items: center;
+        p {
             margin-bottom: 1.5rem;
         }
-        .episode-meta img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 1rem;
+        .logo {
+            max-width: 200px;
+            margin-bottom: 1rem;
         }
-        .guest-info {
-            font-size: 0.9rem;
-        }
-        .guest-name {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .episode-description {
+        .episode-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
             margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
         }
-        .audio-player {
+        .player {
             width: 100%;
-            background-color: #f0f0f5;
-            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 1rem;
+            border-radius: 5px;
+            margin: 1.5rem 0;
         }
-        .audio-player audio {
-            width: 100%;
-        }
-        .cta-button {
+        .btn {
             display: inline-block;
-            background-color: #6200ea;
-            color: white;
+            background-color: var(--accent);
+            color: var(--light);
             padding: 0.8rem 1.5rem;
-            border-radius: 30px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
         }
-        .cta-button:hover {
-            background-color: #5000d6;
+        .btn:hover {
+            background-color: #0d946a;
+            transform: translateY(-2px);
         }
-        .key-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .host-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
         }
-        .key-point {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .host-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+            background-color: var(--primary);
         }
-        .key-point h3 {
-            color: #6200ea;
-            margin-top: 0;
+        .subscribe-section {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 3rem 0;
         }
         footer {
-            background-color: #333;
-            color: white;
             text-align: center;
             padding: 2rem 0;
+            background-color: rgba(0, 0, 0, 0.3);
             margin-top: 3rem;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .tag {
+            background-color: rgba(124, 58, 237, 0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .host-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .host-avatar {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -119,65 +140,78 @@
     <header>
         <div class="container">
             <h1>The Evolve Room</h1>
-            <p class="tagline">Where we're not just talking about the future - we're evolving with it</p>
+            <p>LuminateCX's podcast exploring the cutting edge of technology and business transformation</p>
         </div>
     </header>
 
     <div class="container">
         <div class="episode-card">
-            <div class="episode-meta">
-                <img src="https://via.placeholder.com/50" alt="Steven Muir-McCarey">
-                <div class="guest-info">
-                    <div class="guest-name">Steven Muir-McCarey</div>
-                    <div>AI Strategist & Author</div>
-                </div>
+            <div class="tags">
+                <span class="tag">AI</span>
+                <span class="tag">Zero-to-Solve</span>
+                <span class="tag">Execution Layer</span>
+                <span class="tag">Digital Transformation</span>
             </div>
-            <h2 class="episode-title">Zero-to-Solve: The Execution Layer Has Moved</h2>
-            <div class="episode-description">
-                <p>The real shift in AI isn't where you think. While most teams are still chasing AI disruption, the execution layer has fundamentally moved - from development backlogs to the edge where intent meets outcome instantly.</p>
-                <p>Join us as we explore this paradigm shift with author Steven Muir-McCarey and unpack the Zero-to-Solve era: a world where business users don't just generate ideas, they deliver them.</p>
-            </div>
-            <div class="audio-player">
-                <h3>Listen to the Teaser</h3>
+            <h2>Coming Soon: Zero-to-Solve: The Execution Layer Has Moved</h2>
+            <p>The most transformative shift in AI isn't what you think. While everyone's talking about disruption, the execution layer has already moved. Join us as we talk with Steven Muir-McCarey about his groundbreaking article on the Zero-to-Solve era.</p>
+            
+            <div class="player">
                 <audio controls>
-                    <source src="teaser.mp3" type="audio/mpeg">
+                    <source src="teaser.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
             </div>
-            <a href="#" class="cta-button">Subscribe to the Podcast</a>
+            
+            <h3>Episode Highlights:</h3>
+            <ul>
+                <li>The fundamental shift in where execution happens</li>
+                <li>How citizen developers are building without code</li>
+                <li>The rise of agentic architecture and AI operating systems</li>
+                <li>Why the Model Context Protocol changes everything</li>
+                <li>Strategic implications for organisations and leaders</li>
+            </ul>
+            
+            <p><strong>Release Date:</strong> April 20, 2025</p>
+            
+            <a href="#subscribe" class="btn">Subscribe Now</a>
+            <a href="#" class="btn">Share Episode</a>
         </div>
-
-        <h2>Episode Highlights</h2>
-        <div class="key-points">
-            <div class="key-point">
-                <h3>The Execution Layer Shift</h3>
-                <p>Discover how the point of execution is migrating to the edge, where intent meets outcome instantly, fundamentally changing how solutions are conceived and delivered.</p>
-            </div>
-            <div class="key-point">
-                <h3>Zero-to-Solve Operating Model</h3>
-                <p>Explore a new paradigm where execution moves at the speed of thought - if you can describe it, AI can deploy it without waiting on prioritisation, pipelines, or tickets.</p>
-            </div>
-            <div class="key-point">
-                <h3>Agentic Architecture</h3>
-                <p>Learn how AI-native systems take goals, break them into parts, and assign each to specialised agents - creating orchestrated, autonomous workflows.</p>
-            </div>
-            <div class="key-point">
-                <h3>The Citizen Developer</h3>
-                <p>See how non-technical users are turning plain language into production-ready tools, workflows, and systems - no code required.</p>
+        
+        <h2>Meet Your Hosts</h2>
+        
+        <div class="host-info">
+            <div class="host-avatar"></div>
+            <div>
+                <h3>Jamie Parker</h3>
+                <p>Technology strategist and podcast host with over 15 years of experience in digital transformation. Jamie brings practical insights and a passion for cutting-edge innovation to every episode.</p>
             </div>
         </div>
-
-        <div class="episode-card">
-            <h3>About the Guest</h3>
-            <p>Steven Muir-McCarey is a leading voice in AI strategy and digital transformation. His article "Zero-to-Solve: The Execution Layer Has Moved" has sparked conversations throughout the technology industry about the fundamental shifts occurring in how execution happens.</p>
-            <p>As a thought leader at LuminateCX, Steven helps organisations separate signal from hype and build AI-native workflows that deliver real results.</p>
+        
+        <div class="host-info">
+            <div class="host-avatar"></div>
+            <div>
+                <h3>Alex Chen</h3>
+                <p>AI researcher and business consultant specializing in emerging technologies. Alex helps bridge the gap between technical concepts and real-world applications.</p>
+            </div>
         </div>
+        
+        <div id="subscribe" class="subscribe-section">
+            <h2>Never Miss an Episode</h2>
+            <p>Subscribe to The Evolve Room and stay ahead of the curve with insights from the leading edge of technology and business.</p>
+            <a href="#" class="btn">Apple Podcasts</a>
+            <a href="#" class="btn">Spotify</a>
+            <a href="#" class="btn">Google Podcasts</a>
+            <a href="#" class="btn">RSS Feed</a>
+        </div>
+        
+        <h2>About LuminateCX</h2>
+        <p>At LuminateCX, we help leaders separate signal from hype, identify execution leverage points, and build AI-native workflows that actually ship. Our podcast, The Evolve Room, brings you conversations with thought leaders at the forefront of technological transformation.</p>
     </div>
-
+    
     <footer>
         <div class="container">
             <p>&copy; 2025 LuminateCX. All rights reserved.</p>
-            <p>The Evolve Room is produced by LuminateCX.</p>
+            <p>The Evolve Room podcast is produced by LuminateCX.</p>
         </div>
     </footer>
 </body>
